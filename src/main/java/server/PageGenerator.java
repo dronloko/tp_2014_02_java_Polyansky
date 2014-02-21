@@ -1,4 +1,4 @@
-package Generator;
+package server;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Map;
+
+/**
+ * Created by dronloko 15.02.14.
+ */
 
 public class PageGenerator {
     private static final String HTML_DIR = "templates";

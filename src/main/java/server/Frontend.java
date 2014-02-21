@@ -1,6 +1,4 @@
-package Frontend;
-
-import Generator.PageGenerator;
+package server;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,23 +6,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * Created by dronloko 15.02.14.
+ */
+
 public class Frontend extends HttpServlet{
-    private String login = "user";
-    private String password = "qwerty";
+    private final static String LOGIN = "user";
+    private final static String PASSWORD = "qwerty";
     private AtomicLong userIdGenerator = new AtomicLong();
 
     public static String getTime() {
-        Date date = new Date();
-        date.getTime();
-        DateFormat dateFormat = new SimpleDateFormat("HH.mm.ss");
-        return dateFormat.format(date);
+        return ( new java.util.Date().toString() );
     }
 
     public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -69,7 +65,7 @@ public class Frontend extends HttpServlet{
         String requestPassword = request.getParameter("password");
 
         Map <String, Object> pageVariables = new HashMap<>();
-        if (requestUsername.equals(login) && requestPassword.equals(password)) {
+        if (requestUsername.equals(LOGIN) && requestPassword.equals(PASSWORD)) {
             Long userId = userIdGenerator.getAndIncrement();
             request.getSession().setAttribute("userId", userId);
             response.sendRedirect("/user");
