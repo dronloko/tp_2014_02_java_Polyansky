@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Enter login and password, please!</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <img src="images/image.png" />
+
+        <form method="post" action="auth.html">
+            Login: <input id="username" type="text" name="username"/>
+            <br />
+            Password: <input id="password" type="password" name="password"/>
+            <br />
+            <input type="submit" value="Log in" />
+        </form>
+        <#if errorMessage??>
+            <p>${errorMessage}</p>
+        </#if>
+    </body>
+</html>

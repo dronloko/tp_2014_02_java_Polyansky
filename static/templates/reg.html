@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Sign up, please!</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <img src="images/image.png" />
+
+        <br />Enter your own Personal Identifying Data to register!<br />
+
+        <form method="post" action="reg.html">
+            Login: <input id="username" type="text" name="username"/>
+            <br />
+            Password: <input id="password" type="password" name="password"/>
+            <br />
+            <input type="submit" value="Sign up!" />
+        </form>
+        <#if registrationMessage??>
+            <p>${registrationMessage}</p>
+            <input value="Authorization" onClick="location.href='/auth'" type="button"/>
+        </#if>
+    </body>
+</html>

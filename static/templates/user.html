@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User's page</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="js/reloader.js"></script>
+</head>
+<body onload='setInterval(function(){refresh()}, ${refreshPeriod} ); setClientTime();'>
+    <#if userId??>
+        <p>Authorisation success! User's ID: ${userId}</p>
+        <img src="images/smile.jpg">
+    <#else>
+        <p>${errorMessage}</p>
+        <input value="Registration" onClick="location.href='/reg'" type="button"/>
+        <br />
+        <input value="Authorization" onClick="location.href='/auth'" type="button"/>
+    </#if>
+    <p>Client time: <span id='ClientTime'></span></p>
+    <p>Server time: ${serverTime}</p>
+
+</body>
+</html>

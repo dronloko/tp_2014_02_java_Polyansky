@@ -28,17 +28,9 @@ public class Main {
         resourceHandler.setDirectoriesListed(true);
         resourceHandler.setResourceBase("static");
 
-        RewriteHandler rewriteHandler = new RewriteHandler();
-        rewriteHandler.setRewriteRequestURI(true);
-        rewriteHandler.setRewritePathInfo(true);
-        rewriteHandler.setOriginalPathAttribute("requestedPath");
-        RedirectRegexRule rule = new RedirectRegexRule();
-        rule.setRegex("/");
-        rule.setReplacement("/index");
-        rewriteHandler.addRule(rule);
 
         HandlerList handlers = new HandlerList();
-        handlers.setHandlers(new Handler[]{rewriteHandler, resourceHandler, context});
+        handlers.setHandlers(new Handler[]{resourceHandler, context});
 
         server.setHandler(handlers);
 
